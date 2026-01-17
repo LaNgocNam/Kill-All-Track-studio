@@ -5,52 +5,7 @@
 <title>Kill All Track Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    margin: 0;
-    background: #0b0b0b;
-    color: white;
-    font-family: Arial;
-}
-
-header {
-    padding: 25px;
-    background: #000;
-    font-size: 26px;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 1px solid #222;
-}
-
-.track {
-    background: #111;
-    margin: 20px auto;
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #222;
-}
-
-.track input[type=file] {
-    margin-bottom: 15px;
-}
-
-.slider {
-    width: 100%;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    opacity: 0.8;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    opacity: .5;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -59,36 +14,13 @@ footer {
 🎧 Kill All Track Studio
 </header>
 
-<div class="track">
-    <input type="file" accept="audio/*" id="file">
-    
-    <label>Volume</label>
-    <input type="range" min="0" max="2" step="0.01" value="1" class="slider" id="volume">
-
-    <label>Pan</label>
-    <input type="range" min="-1" max="1" step="0.01" value="0" class="slider" id="pan">
-
-    <audio id="player" controls style="width:100%;margin-top:15px;"></audio>
+<div class="top">
+<input type="file" id="fileInput" multiple accept="audio/*">
+<button onclick="addTrack()">➕ Add track</button>
 </div>
 
-<footer>
-Free Web Audio Studio — No Limit • No Ads • No Time Lock
-</footer>
+<div id="tracks"></div>
 
-<script>
-const fileInput = document.getElementById("file");
-const player = document.getElementById("player");
-const volume = document.getElementById("volume");
-const pan = document.getElementById("pan");
-
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const source = audioCtx.createMediaElementSource(player);
-const gainNode = audioCtx.createGain();
-const panNode = audioCtx.createStereoPanner();
-
-source.connect(gainNode);
-gainNode.connect(panNode);
-panNode.connect(audioCtx.destination);
-
-volume.oninput = () => gainNode.gain.value = volume.value;
-pan.oninput = () => panNode.pan.value = pa
+<script src="script.js"></script>
+</body>
+</html>
