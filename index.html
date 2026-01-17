@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Kill All Track Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    background: #0b0b0b;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+header {
+    padding: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    background: #000;
+    border-bottom: 1px solid #222;
+}
+
+.container {
+    padding: 40px;
+}
+
+input {
+    padding: 12px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    background: crimson;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+audio {
+    margin-top: 30px;
+    width: 90%;
+    max-width: 600px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🎧 Kill All Track Studio
+</header>
+
+<div class="container">
+    <h2>Upload nhạc để nghe / mix demo</h2>
+
+    <input type="file" accept="audio/*" id="audioFile">
+
+    <br>
+
+    <audio id="player" controls></audio>
+</div>
+
+<script>
+const input = document.getElementById("audioFile");
+const player = document.getElementById("player");
+
+input.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+        const url = URL.createObjectURL(file);
+        player.src = url;
+        player.play();
+    }
+});
+</script>
+
+</body>
+</html>
