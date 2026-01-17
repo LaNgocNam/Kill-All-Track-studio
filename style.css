@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #fff;
+  font-family: Arial;
+}
+
+header {
+  padding: 20px;
+  background: #000;
+  font-size: 26px;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+.top {
+  text-align: center;
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #00ff99;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.track {
+  background: #111;
+  margin: 15px auto;
+  padding: 15px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 10px;
+}
+
+.track h3 {
+  margin: 0 0 10px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-size: 12px;
+}
+
+input[type=range] {
+  width: 120px;
+}
